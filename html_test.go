@@ -5,9 +5,9 @@ import (
 	"os"
 	"testing"
 
+	"github.com/lbezerraQgen/gotenberg-go-client/test"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"github.com/thecodingmachine/gotenberg-go-client/v7/test"
 )
 
 func TestHTML(t *testing.T) {
@@ -27,7 +27,7 @@ func TestHTML(t *testing.T) {
 
 func TestHTMLFromString(t *testing.T) {
 	c := &Client{Hostname: "http://localhost:3000"}
-	index, err := NewDocumentFromString("index.html", "<html>Foo</html>")
+	index, _ := NewDocumentFromString("index.html", "<html>Foo</html>")
 	req := NewHTMLRequest(index)
 	dirPath, err := test.Rand()
 	require.Nil(t, err)
